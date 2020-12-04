@@ -1,6 +1,6 @@
-const fs = require('fs');
+const tools = require('../../shared/dataReader');
 
-fs.readFile('../input.txt', 'utf8', (err, data) => {
+tools.dataReader('../input.txt', (err, data) => {
   if(err) {
     console.log('Error reading file.');
     return;
