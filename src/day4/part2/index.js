@@ -1,6 +1,6 @@
 const tools = require('../../shared/dataReader');
 
-tools.dataReader('C:/repos/adventOfCode/src/day4/input.txt', (err, data) => {
+tools.dataReader('../input.txt', (err, data) => {
   if (err) {
     console.log('error reading file');
     return;
