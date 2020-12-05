@@ -59,7 +59,7 @@ tools.dataReader('../input.txt', (err, data) => {
 
     if (
       props.every((prop) => {
-        return validator.validate(prop[1], validator.ruleDefs.get(prop[0]));
+        return validator.validate(prop[1], prop[0]);
       })
     ) {
       validEntries++;
@@ -76,6 +76,7 @@ class Validator {
   }
 
   validate(data, ruleDef) {
-    return ruleDef(data);
+    const validatorFn = this.ruleDefs.get(ruleDef);
+    return validatorFn(data);
   }
 }
