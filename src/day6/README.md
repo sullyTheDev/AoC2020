@@ -75,7 +75,8 @@ This list represents answers from five groups:
 - In the second group, there is no question to which everyone answered "yes".
 - In the third group, everyone answered yes to only `1` question, `a`. Since some people did not answer "yes" to `b` or `c`, they don't count.
 - In the fourth group, everyone answered yes to only `1` question, `a`.
-- In the fifth group, everyone (all 1 person) answered "yes" to `1` question, `b`.
+- In the fifth group, everyone (all 1 person) answered "yes" to `1` question, `b`.  
+
 In this example, the sum of these counts is `3 + 0 + 1 + 1 + 1 = 6`.
 
 **For each group, count the number of questions to which everyone answered "yes". What is the sum of those counts?**
