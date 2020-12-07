@@ -1,6 +1,6 @@
 const tools = require("../../shared/dataReader");
 
-tools.dataReader("C:/Repos/AoC2020/src/day7/input.txt", (err, data) => {
+tools.dataReader("../input.txt", (err, data) => {
   if (err) {
     console.log("error reading file:", err);
     return;
@@ -10,20 +10,7 @@ tools.dataReader("C:/Repos/AoC2020/src/day7/input.txt", (err, data) => {
   let accum = {value: 0}
   traverseTree('shiny gold', 1, formattedData, accum);
 
-  console.log(accum);
-
-  /* const containingBagsSet = filterFn(
-    dataArray,
-    new Set([{ color: "shiny gold" }])
-  );
-  const amountArray = [...containingBagsSet]
-    .filter((x) => !isNaN(x.amount))
-    .map((x) => x.amount);
-
-  console.log(amountArray);
-  const amount = amountArray.reduce((acc, val) => acc * val);
-
-  console.log(`The 'shiny gold' bag is required to have ${amount} bags inside of it.`); */
+  console.log(`The 'shiny gold' bag needs to contain ${accum.value} other bags.`);
 });
 
 function formatEntry(entry) {
@@ -47,28 +34,8 @@ function traverseTree(startingPoint, startingNumber, tree, accum) {
 
     startingNode.contents.forEach(collection => {
         accum.value = accum.value + startingNumber * collection.amount;
-        traverseTree(collection.key, collection.amount, tree, accum);
+        traverseTree(collection.key, startingNumber * collection.amount, tree, accum);
     });
 
     return accum;
-}
-
-function filterFn(array, parentBagSet) {
-  for (let i = 0; i < parentBagSet.size; i++) {
-    const items = array
-      .filter((x) => x.startsWith([...parentBagSet][i].color))
-      .map((x) => {
-        return x
-          .substring(x.indexOf("contain ") + "contain ".length)
-          .split(", ")
-          .map((x) => ({
-            color: x.substring(2, x.indexOf(" bag")),
-            amount: +x.substring(0, 1),
-          }));
-      })
-      .flat();
-    parentBagSet = new Set([...parentBagSet, ...items]);
-  }
-  parentBagSet.delete("shiny gold");
-  return parentBagSet;
 }
