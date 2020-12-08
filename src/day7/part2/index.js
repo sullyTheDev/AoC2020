@@ -36,6 +36,4 @@ function traverseTree(startingPoint, startingNumber, tree, accum) {
         accum.value = accum.value + startingNumber * collection.amount;
         traverseTree(collection.key, startingNumber * collection.amount, tree, accum);
     });
-
-    return accum;
 }
