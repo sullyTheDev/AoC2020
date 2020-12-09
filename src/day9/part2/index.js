@@ -10,7 +10,7 @@ tools.dataReader('../input.txt', (err, data) => {
     const preambleLength = 25;
     const invalidNum = findInvalidNumber(preambleLength, dataArray);
 
-    const answer = findContiguousSet(invalidNum, dataArray);
+    findContiguousSet(invalidNum, dataArray);
 
 
 
