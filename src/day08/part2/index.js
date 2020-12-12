@@ -22,7 +22,7 @@ tools.dataReader("../input.txt", (err, data) => {
     while (true) {
       if (iter >= testArray.length) {
         console.log(`The accumulator totals ${accum} after a successful run`);
-        return
+        return;
       }
 
       if (commandLog.has(iter)) {
@@ -42,10 +42,8 @@ tools.dataReader("../input.txt", (err, data) => {
           break;
       }
       iter += indexChange;
-      
     }
   }
-
 });
 
 function changeCommand(command) {

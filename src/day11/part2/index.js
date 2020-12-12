@@ -78,10 +78,15 @@ function shouldSwitchSeatStatus(
         : rowArray[rowIndex + 1][seatIndex],
   };
 
-  Object.keys(adjacentSeats).forEach(key => {
-      adjacentSeats[key] = findNextSeat(rowArray, rowIndex, seatArray, seatIndex, key);
+  Object.keys(adjacentSeats).forEach((key) => {
+    adjacentSeats[key] = findNextSeat(
+      rowArray,
+      rowIndex,
+      seatArray,
+      seatIndex,
+      key
+    );
   });
-
 
   if (type === "L") {
     const occupied = Object.keys(adjacentSeats).every(
@@ -108,7 +113,7 @@ function performSeatSwap(dataArray, coord) {
 }
 
 function findNextSeat(rowArray, rowIndex, seatArray, seatIndex, position) {
-    let iter = 1;
+  let iter = 1;
   switch (position) {
     case "left":
       for (let i = seatIndex - 1; i >= 0; i--) {
@@ -152,7 +157,7 @@ function findNextSeat(rowArray, rowIndex, seatArray, seatIndex, position) {
         iter++;
       }
       break;
-      case "upperRight":
+    case "upperRight":
       for (let i = rowIndex - 1; i >= 0; i--) {
         const seatValue =
           rowArray[i] === undefined ? undefined : rowArray[i][seatIndex + iter];
@@ -162,7 +167,7 @@ function findNextSeat(rowArray, rowIndex, seatArray, seatIndex, position) {
         iter++;
       }
       break;
-      case "lowerLeft":
+    case "lowerLeft":
       for (let i = rowIndex + 1; i < rowArray.length; i++) {
         const seatValue =
           rowArray[i] === undefined ? undefined : rowArray[i][seatIndex - iter];
@@ -172,7 +177,7 @@ function findNextSeat(rowArray, rowIndex, seatArray, seatIndex, position) {
         iter++;
       }
       break;
-      case "lowerRight":
+    case "lowerRight":
       for (let i = rowIndex + 1; i < rowArray.length; i++) {
         const seatValue =
           rowArray[i] === undefined ? undefined : rowArray[i][seatIndex + iter];

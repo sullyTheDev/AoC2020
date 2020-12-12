@@ -78,7 +78,6 @@ function shouldSwitchSeatStatus(
         : rowArray[rowIndex + 1][seatIndex],
   };
 
-
   if (type === "L") {
     const occupied = Object.keys(adjacentSeats).every(
       (key) => adjacentSeats[key] !== "#"
