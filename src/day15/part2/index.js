@@ -1,6 +1,6 @@
 const tools = require('../../shared/datareader');
 
-tools.dataReader('C:/Repos/AoC2020/src/day15/input.txt', (err, data) => {
+tools.dataReader('../input.txt', (err, data) => {
     if(err) {
         console.log('error reading file');
         return;
@@ -26,6 +26,3 @@ tools.dataReader('C:/Repos/AoC2020/src/day15/input.txt', (err, data) => {
 
     console.log(`The 30000000th number spoken is ${spokenNums[spokenNums.length -1]}`)
 });
-
-
-/* TODO: Convert to using a map lookup for last index vs looping through array to find index */
